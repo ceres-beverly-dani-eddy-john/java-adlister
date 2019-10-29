@@ -17,6 +17,35 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
+            Categories
+            <br>
+            <div class="form-group">
+                <input type="checkbox" value="community" id="community" name="categories">
+                <label for="community">
+                    Community
+                </label>
+                <br>
+                <input type="checkbox" value="services" id="services" name="categories">
+                <label for="services">
+                    Services
+                </label>
+                <br>
+                <input type="checkbox" value="housing" id="housing" name="categories">
+                <label for="housing">
+                    Housing
+                </label>
+                <br>
+                <input type="checkbox" value="for-sale" id="for-sale" name="categories">
+                <label for="for-sale">
+                    For Sale
+                </label>
+                <br>
+                <input type="checkbox" value="jobs" id="jobs" name="categories">
+                <label for="jobs">
+                    Jobs
+                </label>
+                <br>
+            </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
