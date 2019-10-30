@@ -12,4 +12,6 @@ public interface Ads {
     Long insert(Ad ad);
     List<Ad> viewAllAdsFromUser(User user);
 
+
+    List<Ad> deleteAd(Ad ad);
 }
