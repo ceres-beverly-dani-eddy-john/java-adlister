@@ -15,10 +15,8 @@ import java.util.List;
 @WebServlet(name = "controllers.IndexServlet", urlPatterns = "/")
 public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("IndexServlet doGet method has been accessed.");
         List<Category> cats = DaoFactory.getCategoriesDao().all();
         request.setAttribute("categories", cats);
-        System.out.println(cats);
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
 }

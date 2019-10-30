@@ -13,5 +13,5 @@ public interface Ads {
     List<Ad> viewAllAdsFromUser(User user);
 
 
-    List<Ad> deleteAd(Ad ad);
+    List<Ad> deleteAd(long adId);
 }

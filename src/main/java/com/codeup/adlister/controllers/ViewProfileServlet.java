@@ -19,14 +19,13 @@ public class ViewProfileServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+
 //this utilizes our method viewAllAdsFromUser(user) created in the mySQLAdsDoa that takes in user objects
         User user = (User) request.getSession().getAttribute("user");
         request.setAttribute("userAds", DaoFactory.getAdsDao().viewAllAdsFromUser(user));
-        Ad ad = (Ad) request.getSession().getAttribute("ad");
-        request.setAttribute("deleteAd", DaoFactory.getAdsDao().deleteAd(ad));
-
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        }
 
     }
 
-}
+

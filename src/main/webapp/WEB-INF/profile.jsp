@@ -22,7 +22,8 @@
             <div class="col-md-6">
                 <h2>${ad.title}</h2>
                 <p>${ad.description}</p>
-            <form action=""></form>
+                <a href="/delete?adId=${ad.id}">Delete this ad</a>
+<%--                <a href="/delete">Delete this ad</a>--%>
             </div>
         </c:forEach>
 
