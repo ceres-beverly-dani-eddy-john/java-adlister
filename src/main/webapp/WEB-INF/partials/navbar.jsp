@@ -8,12 +8,13 @@
         <ul class="nav navbar-nav navbar-right">
             <c:choose>
                 <c:when test="${sessionScope.user != null}">
+                    <li><a href="/profile">Profile</a></li>
                     <li><a href="/ads/create">Create Post</a></li>
                 </c:when>
             </c:choose>
-            <form action="/search" class="navbar-form navbar-left">
+            <form action="/search" method="get" class="navbar-form navbar-left">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="searchTerm" placeholder="Search">
+                    <input type="text" class="form-control" name="searchTerm" placeholder="Search" value="${param.searched}">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
