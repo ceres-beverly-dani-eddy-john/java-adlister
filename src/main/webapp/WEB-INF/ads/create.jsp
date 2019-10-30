@@ -10,6 +10,7 @@
     <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
+<%--        <form action="https://request-inspector.glitch.me/" method="post">--%>
             <div class="form-group">
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
@@ -21,27 +22,27 @@
             Categories
             <br>
             <div class="form-group">
-                <input type="checkbox" value="community" id="community" name="categories">
+                <input type="checkbox" value="Community" id="community" name="categories">
                 <label for="community">
                     Community
                 </label>
                 <br>
-                <input type="checkbox" value="services" id="services" name="categories">
+                <input type="checkbox" value="Services" id="services" name="categories">
                 <label for="services">
                     Services
                 </label>
                 <br>
-                <input type="checkbox" value="housing" id="housing" name="categories">
+                <input type="checkbox" value="Housing" id="housing" name="categories">
                 <label for="housing">
                     Housing
                 </label>
                 <br>
-                <input type="checkbox" value="for-sale" id="for-sale" name="categories">
+                <input type="checkbox" value="For Sale" id="for-sale" name="categories">
                 <label for="for-sale">
                     For Sale
                 </label>
                 <br>
-                <input type="checkbox" value="jobs" id="jobs" name="categories">
+                <input type="checkbox" value="Jobs" id="jobs" name="categories">
                 <label for="jobs">
                     Jobs
                 </label>
