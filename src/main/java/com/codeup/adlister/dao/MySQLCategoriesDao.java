@@ -50,4 +50,35 @@ public class MySQLCategoriesDao implements Categories {
         }
         return categories;
     }
+
+
+    public Long insertIntoAdCategoryTable(long adId, String category) {
+        try {
+            // Find the category_id in the database that matches with the category String
+            String selectQuery = "SELECT id FROM categories WHERE name = ?";
+            PreparedStatement selectStmt = connection.prepareStatement(selectQuery);
+            selectStmt.setString(1, category);
+            ResultSet selectRS = selectStmt.executeQuery();
+            // Initialize categoryId to 0 as an emergency backup
+            long categoryId = 0;
+            while (selectRS.next()) {
+                categoryId = selectRS.getLong("id");
+            }
+            // Insert a new entry into the ad_category table
+            String insertQuery = "INSERT INTO ad_category(ad_id, category_id) VALUES (?, ?)";
+            PreparedStatement insertStmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            insertStmt.setLong(1, adId);
+            insertStmt.setLong(2, categoryId);
+            insertStmt.executeUpdate();
+            ResultSet rs = insertStmt.getGeneratedKeys();
+            if(rs.next()) {
+                return rs.getLong(1);
+            } else {
+                return 0L;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error storing category information in database.", e);
+        }
+//        return 0L;
+    }
 }
