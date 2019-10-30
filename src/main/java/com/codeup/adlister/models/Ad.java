@@ -9,6 +9,9 @@ public class Ad {
     private String description;
     private String[] categories;
 
+    public Ad() {
+    }
+
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
         this.userId = userId;
