@@ -14,15 +14,10 @@
 
 <h1>Here are your results!</h1>
 
-<div class="card-body">
-    <a href="/ad/id/?${ad.id}">
+<div>
         <h3 class="card-title">${ad.title}</h3>
-    </a>
-    <h5 class="text-left">Date: ${ad.date},  Ad ID:${ad.id}</h5>
     <p class="card-text">Description: ${ad.description}</p>
-    <h4 class="text-right">Block: ${ad.block}</h4>
-    <h4 class="text-right">Category: ${ad.category}</h4>
-</div>
+
 
 </body>
 </html>

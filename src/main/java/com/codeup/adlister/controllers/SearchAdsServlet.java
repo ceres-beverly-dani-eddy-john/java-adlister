@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "SearchAdsServlet", urlPatterns = "ads/search")
+@WebServlet(name = "SearchAdsServlet", urlPatterns = "/search")
 public class SearchAdsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String search = request.getQueryString().toLowerCase();
