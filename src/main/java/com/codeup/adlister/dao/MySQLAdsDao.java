@@ -92,7 +92,7 @@ public class MySQLAdsDao implements Ads {
     @Override
     public List<Ad> searchedAds(String searchTerm) {
         try {
-            String sql = "SELECT * FROM ads WHERE title LIKE ?";
+            String sql = "SELECT * FROM ads WHERE title LIKE ? ";
             String searchTermWithWildcards = "%" + searchTerm + "%";
 
             PreparedStatement stmt = connection.prepareStatement(sql);
