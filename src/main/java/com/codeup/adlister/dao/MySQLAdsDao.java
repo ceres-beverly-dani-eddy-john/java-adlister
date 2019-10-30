@@ -113,4 +113,18 @@ public class MySQLAdsDao implements Ads {
         }
        return null;
     }
+
+    @Override
+    public List<Ad> deleteAd(long adId) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("DELETE FROM ads WHERE id = ?");
+            stmt.setLong(1, adId);
+            stmt.executeUpdate();
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+
+    }
 }
