@@ -14,4 +14,6 @@ public interface Ads {
     List<Ad> viewAllAdsFromUser(User user);
     List<Ad> searchedAds(String string);
 
+
+    List<Ad> deleteAd(long adId);
 }
