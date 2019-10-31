@@ -28,7 +28,9 @@ public class ViewAdsServlet extends HttpServlet {
          User user = DaoFactory.getUsersDao().findUserId(ad.getUserId());
         request.setAttribute("ad", ad);
         request.setAttribute("user", user);
-
+        // It will not get to this SOUT unless no categories were selected when ad was created
+//        System.out.println("DaoFactory.getCategoriesDao().getCategoriesForAd(id) = " + DaoFactory.getCategoriesDao().getCategoriesForAd(id));
+        request.setAttribute("categories", DaoFactory.getCategoriesDao().getCategoriesForAd(id));
 
 
         // Send to jsp
