@@ -104,7 +104,6 @@ public class MySQLAdsDao implements Ads {
     }
 
 
-
     public Ad getAdId(long id) {
         try {
             PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
@@ -159,8 +158,4 @@ public class MySQLAdsDao implements Ads {
 
     }
 
-
-    public static void main(String[] args) {
-
-    }
 }

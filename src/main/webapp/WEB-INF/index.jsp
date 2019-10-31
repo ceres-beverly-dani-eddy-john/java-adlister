@@ -10,7 +10,6 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <h1>Welcome to the Adlister!</h1>
-
         <c:forEach var="category" items="${categories}">
             <div class="col-md-6">
                 <h2><a href="/category?category=${category.id}"> ${category.name}</a></h2>

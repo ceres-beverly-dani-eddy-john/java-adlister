@@ -10,16 +10,13 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<%--<c: for--%>
-<%--<h1>  <c:out value="${ads.title}"/></h1>--%>
-<%--<p> <c:out value="${ads.description}"/></p>--%>
-
-
-<c:forEach var="ad" items="${ads}">
+<c:forEach var="ad" items="${adscat}">
     <div class="col-md-6">
         <h1><a href="/info?id=${ad.id}"> ${ad.title}</a></h1>
         <p>${ad.description}</p>
