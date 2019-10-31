@@ -97,11 +97,8 @@ public class MySQLCategoriesDao implements Categories {
         try {
             String selectQuery = "SELECT * FROM categories WHERE id IN" +
                     "(SELECT category_id FROM ad_category WHERE ad_id = ?)";
-//            System.out.println("selectQuery = " + selectQuery);
             PreparedStatement selectStmt = connection.prepareStatement(selectQuery);
             selectStmt.setLong(1, adId);
-            // Query can pull results successfully from DB
-            System.out.println("selectStmt = " + selectStmt);
             ResultSet rs = selectStmt.executeQuery();
             return createCategoriesFromResults(rs);
         } catch (SQLException e) {
