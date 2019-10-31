@@ -28,8 +28,7 @@ public class ViewAdsServlet extends HttpServlet {
          User user = DaoFactory.getUsersDao().findUserId(ad.getUserId());
         request.setAttribute("ad", ad);
         request.setAttribute("user", user);
-
-
+        request.setAttribute("categories", DaoFactory.getCategoriesDao().getCategoriesForAd(id));
 
         // Send to jsp
         request.getRequestDispatcher("/WEB-INF/ads/info.jsp").forward(request, response);

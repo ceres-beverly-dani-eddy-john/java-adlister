@@ -91,4 +91,19 @@ public class MySQLCategoriesDao implements Categories {
             throw new RuntimeException("Error deleting entries from ad_category table.", e);
         }
     }
+
+    @Override
+    public List<Category> getCategoriesForAd (long adId) {
+        try {
+            String selectQuery = "SELECT * FROM categories WHERE id IN" +
+                    "(SELECT category_id FROM ad_category WHERE ad_id = ?)";
+            PreparedStatement selectStmt = connection.prepareStatement(selectQuery);
+            selectStmt.setLong(1, adId);
+            ResultSet rs = selectStmt.executeQuery();
+            return createCategoriesFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving categories for this ad from database.");
+
+        }
+    }
 }

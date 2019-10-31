@@ -9,5 +9,5 @@ public interface Categories {
     List<Category> all();
     Long insertIntoAdCategoryTable(long adId, String category);
     void deleteAdFromCategoryTable(long adId);
-
+    List<Category> getCategoriesForAd(long adId);
 }
