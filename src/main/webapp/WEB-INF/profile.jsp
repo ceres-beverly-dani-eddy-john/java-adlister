@@ -23,7 +23,8 @@
                 <h2>${ad.title}</h2>
                 <p>${ad.description}</p>
                 <a href="/delete?adId=${ad.id}">Delete this ad</a>
-<%--                <a href="/delete">Delete this ad</a>--%>
+                <a href="/edit?adId=${ad.id}&title=${ad.title}&description=${ad.description}">Edit</a>
+                
             </div>
         </c:forEach>
 

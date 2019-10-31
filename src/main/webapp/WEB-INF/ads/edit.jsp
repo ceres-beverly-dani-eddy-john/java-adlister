@@ -1,4 +1,11 @@
+<%@ page import="com.codeup.adlister.models.Ad" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String title = request.getParameter("title");
+    Ad ad = new Ad(
+            request.getParameter("title"),
+            request.getParameter("description"));
+%>
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -7,17 +14,23 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 </head>
 <body>
+
+
+
+<%--form has to be dynamic for prefill --%>
+<c:forEach items="${collection}" var="element">
 <div class="container">
-    <h1>Create a new Ad</h1>
-    <form action="/ads/create" method="post">
+    <h1>Edit your ad</h1>
+
+    <form action="/ads/edit" method="post">
         <%--        <form action="https://request-inspector.glitch.me/" method="post">--%>
         <div class="form-group">
             <label for="title">Title</label>
-            <input id="title" name="title" class="form-control" type="text">
+            <input id="title" name="title" class="form-control" type="text" value="<%=ad.title%>">
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea id="description" name="description" class="form-control" type="text"></textarea>
+            <textarea id="description" name="description" class="form-control" type="text" value="<%=ad.description%>"></textarea>
         </div>
         Categories
         <br>
@@ -51,5 +64,6 @@
         <input type="submit" class="btn btn-block btn-primary">
     </form>
 </div>
+</c:forEach>
 </body>
 </html>

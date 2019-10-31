@@ -125,6 +125,21 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
+    }
 
+    @Override
+    public List<Ad> editAd(long adId, String title, String description) {
+
+            PreparedStatement stmt = null;
+            try {
+                stmt = connection.prepareStatement("UPDATE ads SET title = ?, description =? WHERE id = ?");
+                stmt.setString(1, title);
+                stmt.setString(2, description);
+                stmt.setLong(3, adId);
+                stmt.executeUpdate();
+            return null;
+        } catch (SQLException e) {
+                throw new RuntimeException("Error editing the ad.", e);
+            }
     }
 }
