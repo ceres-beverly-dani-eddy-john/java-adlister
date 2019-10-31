@@ -89,6 +89,21 @@ public class MySQLAdsDao implements Ads {
 
     }
 
+    public Ad getAdId(long id) {
+        try {
+            // New statement to find an ad with a specific id
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            // Insert ad id into statement
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ads by id.", e);
+        }
+    }
+
+
     @Override
     public List<Ad> searchedAds(String searchTerm) {
         try {
@@ -128,16 +143,16 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public List<Ad> editAd(long adId, String title, String description) {
+    public void editAd(long adId, String title, String description) {
 
             PreparedStatement stmt = null;
             try {
                 stmt = connection.prepareStatement("UPDATE ads SET title = ?, description =? WHERE id = ?");
                 stmt.setString(1, title);
                 stmt.setString(2, description);
-                stmt.setLong(3, adId);
+                stmt.setLong(3,adId);
                 stmt.executeUpdate();
-            return null;
+
         } catch (SQLException e) {
                 throw new RuntimeException("Error editing the ad.", e);
             }

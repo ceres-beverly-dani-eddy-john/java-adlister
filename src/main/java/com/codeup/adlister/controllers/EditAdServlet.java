@@ -1,6 +1,7 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.Ad;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,30 +14,32 @@ import java.io.IOException;
 public class EditAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //edit goes here
+        String newAdTitle = request.getParameter("title");
 
-        response.sendRedirect("/edit");
+        System.out.println(request.getParameter("adId"));
+
+//        long idToEdit = Long.parseLong(request.getAttribute("adId"));
+
+        String newAdDescription =request.getParameter("description");
+       DaoFactory.getAdsDao().editAd(4,newAdTitle,newAdDescription);
+
+
+        response.sendRedirect("/profile");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long idToEdit = Long.parseLong(request.getParameter("adId"));
-        String titleToEdit = request.getParameter("title");
-        String descriptionToEdit = request.getParameter("description");
-
-        System.out.println("descriptionToEdit = " + descriptionToEdit);
-        System.out.println("titleToEdit = " + titleToEdit);
-        System.out.println("idToEdit = " + idToEdit);
-
-        //get ad by id
-        //22-23 dont need
-        //add title and descritipn to request so that edit.jsp can prefill request
-
+        long idToEdit = Long.parseLong(request.getParameter("adId"));
 //
-//
-//     getQueryString());
-//
+//        request.setAttribute("adId", idToEdit);
 
-        request.setAttribute("populated",DaoFactory.getAdsDao().editAd(idToEdit, titleToEdit, descriptionToEdit));
 
+     Ad adToEdit = DaoFactory.getAdsDao().getAdId(idToEdit);
+     request.setAttribute("title", adToEdit.getTitle());
+        request.setAttribute("description", adToEdit.getDescription());
+        System.out.println(adToEdit.getId());
+        // we can see adToEdit.getId here, but we are not setting it correctly for post
+//        request.setAttribute("adId", adToEdit.getId());
+        request.setAttribute("adId",idToEdit);
 
 
         request.getRequestDispatcher("/WEB-INF/ads/edit.jsp").forward(request, response);

@@ -17,6 +17,7 @@ public interface Ads {
 
 
     List<Ad> deleteAd(long adId);
-    List<Ad> editAd(long adId, String title, String description);
+    void editAd(long adId, String title, String description);
+    Ad getAdId(long adId);
 
 }

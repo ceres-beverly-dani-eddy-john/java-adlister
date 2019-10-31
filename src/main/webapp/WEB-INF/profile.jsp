@@ -22,7 +22,7 @@
             <div class="col-md-6">
                 <h2>${ad.title}</h2>
                 <p>${ad.description}</p>
-                <a href="/delete?adId=${ad.id}">Delete this ad</a>
+                <a href="/delete?adId=${ad.id}">Delete this ad</a><br>
                 <a href="/edit?adId=${ad.id}">Edit</a>
                 
             </div>
