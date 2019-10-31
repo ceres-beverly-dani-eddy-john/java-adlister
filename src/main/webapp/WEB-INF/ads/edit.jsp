@@ -1,11 +1,6 @@
 <%@ page import="com.codeup.adlister.models.Ad" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String title = request.getParameter("title");
-    Ad ad = new Ad(
-            request.getParameter("title"),
-            request.getParameter("description"));
-%>
+
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -18,7 +13,7 @@
 
 
 <%--form has to be dynamic for prefill --%>
-<c:forEach items="${collection}" var="element">
+<c:forEach items="${populated}" var="pop">
 <div class="container">
     <h1>Edit your ad</h1>
 
@@ -26,11 +21,11 @@
         <%--        <form action="https://request-inspector.glitch.me/" method="post">--%>
         <div class="form-group">
             <label for="title">Title</label>
-            <input id="title" name="title" class="form-control" type="text" value="<%=ad.title%>">
+            <input id="title" name="title" class="form-control" type="text" value="${pop.title}">
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea id="description" name="description" class="form-control" type="text" value="<%=ad.description%>"></textarea>
+            <textarea id="description" name="description" class="form-control" type="text">${pop.description}</textarea>
         </div>
         Categories
         <br>

@@ -12,7 +12,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.EditAdServlet", urlPatterns = "/edit")
 public class EditAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+//edit goes here
 
         response.sendRedirect("/edit");
     }
@@ -21,17 +21,21 @@ public class EditAdServlet extends HttpServlet {
         Long idToEdit = Long.parseLong(request.getParameter("adId"));
         String titleToEdit = request.getParameter("title");
         String descriptionToEdit = request.getParameter("description");
+
         System.out.println("descriptionToEdit = " + descriptionToEdit);
         System.out.println("titleToEdit = " + titleToEdit);
         System.out.println("idToEdit = " + idToEdit);
 
-        request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
+        //get ad by id
+        //22-23 dont need
+        //add title and descritipn to request so that edit.jsp can prefill request
+
 //
 //
 //     getQueryString());
 //
-//
-        DaoFactory.getAdsDao().editAd(idToEdit, titleToEdit, descriptionToEdit);
+
+        request.setAttribute("populated",DaoFactory.getAdsDao().editAd(idToEdit, titleToEdit, descriptionToEdit));
 
 
 
