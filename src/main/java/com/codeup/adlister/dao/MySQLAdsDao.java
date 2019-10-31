@@ -39,6 +39,21 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+    @Override
+    public List<Ad> viewAdsByCategory(long id) {
+        try {
+            PreparedStatement stmnt = connection.prepareStatement("SELECT * FROM ads where id IN(" +
+                    "select ad_id from ad_category where category_id = ?)");
+            stmnt.setLong(1,id);
+            ResultSet rs = stmnt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @Override
     public Long insert(Ad ad) {
         try {
@@ -88,11 +103,11 @@ public class MySQLAdsDao implements Ads {
 
     }
 
+
+
     public Ad getAdId(long id) {
         try {
-            // New statement to find an ad with a specific id
             PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
-            // Insert ad id into statement
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -101,6 +116,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving ads by id.", e);
         }
     }
+
+
 
     @Override
     public List<Ad> searchedAds(String searchTerm) {
@@ -139,6 +156,11 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
+
+    }
+
+
+    public static void main(String[] args) {
 
     }
 }

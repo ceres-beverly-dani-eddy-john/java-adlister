@@ -13,7 +13,7 @@
 
         <c:forEach var="category" items="${categories}">
             <div class="col-md-6">
-                <h2>${category.name}</h2>
+                <h2><a href="/category?category=${category.id}"> ${category.name}</a></h2>
             </div>
         </c:forEach>
 
