@@ -113,7 +113,7 @@ public class MySQLAdsDao implements Ads {
         }
        return null;
     }
-
+//this method takes in a long that represents the ad id
     @Override
     public List<Ad> deleteAd(long adId) {
         PreparedStatement stmt = null;
