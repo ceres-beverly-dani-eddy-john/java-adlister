@@ -27,8 +27,8 @@ public class CreateAdServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         // Confirm neither title nor description are empty
         if (request.getParameter("title").equals("") || request.getParameter("description").equals("")) {
-            // Add error message to inform user why they could not create an ad
-            response.sendRedirect("/ads/create");
+            // To-Do: Add error message to inform user why they could not create an ad
+            response.sendRedirect("/ads/create?error=1");
         } else {
             Ad ad = new Ad(
                     user.getId(),
@@ -41,7 +41,6 @@ public class CreateAdServlet extends HttpServlet {
             // If at least one category was checked, insert entry into ad_category table
             if (adCategories != null) {
                 for (String category : adCategories) {
-                    System.out.println("category = " + category);
                     DaoFactory.getCategoriesDao().insertIntoAdCategoryTable(adID, category);
                 }
 
