@@ -1,16 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: eddybautista
-  Date: 2019-10-30
-  Time: 14:17
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Landing page for ads</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Ad view!" />
+    </jsp:include>
+
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<h1>  <c:out value="${ad.title}"/></h1>
+<p> <c:out value="${ad.description}"/></p>
 
 </body>
 </html>
