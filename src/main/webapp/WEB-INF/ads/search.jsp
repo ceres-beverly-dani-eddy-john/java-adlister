@@ -26,7 +26,7 @@
 
     <div class="panel panel-info wid">
         <div class="panel-heading">
-            <h2 class="panel-title"><a href="/profile">${ad.title}</a> </h2>
+            <h2 class="panel-title"><a href="/info?id=${ad.id}">${ad.title}</a> </h2>
         </div>
         <div class="panel-body">
             <p>${ad.description}</p>
