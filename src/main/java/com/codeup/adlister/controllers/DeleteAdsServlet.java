@@ -16,6 +16,11 @@ public class DeleteAdsServlet extends HttpServlet {
 
         Long idToDelete = Long.parseLong(request.getParameter("adId"));
         DaoFactory.getAdsDao().deleteAd(idToDelete);
+
+        // delete all db entries from ad_category where ad_id = idToDelete
+        DaoFactory.getCategoriesDao().deleteAdFromCategoryTable(idToDelete);
+
+
         response.sendRedirect("/profile");
 
 
