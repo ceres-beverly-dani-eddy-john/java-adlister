@@ -9,7 +9,12 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<h1>  <c:out value="${ad.title}"/></h1>
+
+<div class="panel panel-info wid">
+    <div class="panel-heading">
+<h1 class="panel-title" >  <c:out value="${ad.title}"/></h1>
+    </div>
+    <div class="panel-body">
 <p> <c:out value="${ad.description}"/></p>
 <div>
     <strong>Contact: </strong>
@@ -24,7 +29,6 @@
             </c:forEach>
         </ul>
     </c:if>
-
 </div>
 
 </body>

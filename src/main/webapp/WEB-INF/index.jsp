@@ -9,7 +9,11 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1>Welcome to the Adlister!</h1>
+
+        <div class="jumbotron">
+            <h1>Welcome to the Adlister!</h1>
+            <p><a class="btn btn-primary btn-lg" href="/ads" role="button">View Ads!</a></p>
+        </div>
         <c:forEach var="category" items="${categories}">
             <div class="col-md-6">
                 <h2><a href="/category?category=${category.id}"> ${category.name}</a></h2>

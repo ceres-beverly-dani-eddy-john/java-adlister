@@ -20,13 +20,16 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<h1>Here are your results!</h1>
+<div class="page-header">
+    <h1>Here are your results!<small></small></h1>
+</div>
+
 
 <c:forEach var="ad" items="${ads}">
 
     <div class="panel panel-info wid">
         <div class="panel-heading">
-            <h2 class="panel-title"><a href="/profile">${ad.title}</a> </h2>
+            <h2 class="panel-title"><a href="/info?id=${ad.id}">${ad.title}</a> </h2>
         </div>
         <div class="panel-body">
             <p>${ad.description}</p>
