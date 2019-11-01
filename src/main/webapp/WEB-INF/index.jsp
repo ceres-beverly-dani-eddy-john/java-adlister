@@ -16,7 +16,7 @@
         </div>
         <c:forEach var="category" items="${categories}">
             <div class="col-md-6">
-                <h2><a href="/category?category=${category.id}"> ${category.name}</a></h2>
+                <h2><a href="/category?category=${category.id}&catname=${category.name}"> ${category.name}</a></h2>
             </div>
         </c:forEach>
 

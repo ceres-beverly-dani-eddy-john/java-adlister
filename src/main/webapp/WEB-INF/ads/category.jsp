@@ -16,6 +16,8 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
+<h2>${category_name}</h2>
+
 <c:forEach var="ad" items="${adscat}">
     <div class="col-md-6">
         <h1><a href="/info?id=${ad.id}"> ${ad.title}</a></h1>
