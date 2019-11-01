@@ -19,6 +19,7 @@
 
     <form action="/edit" method="post">
         <%--        <form action="https://request-inspector.glitch.me/" method="post">--%>
+        <input id="id" name="id" class="form-control" type="hidden" value="${id}">
         <div class="form-group">
             <label for="title">Title</label>
             <input id="title" name="title" class="form-control" type="text" value="${title}">
