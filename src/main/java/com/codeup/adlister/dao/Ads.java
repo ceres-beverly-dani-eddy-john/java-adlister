@@ -4,6 +4,7 @@ import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 
 
+import java.sql.ResultSet;
 import java.util.List;
 
 public interface Ads {
@@ -19,4 +20,6 @@ public interface Ads {
 
 
     List<Ad> deleteAd(long adId);
+    void editAd(long adId, String title, String description);
+
 }

@@ -24,35 +24,29 @@
             </div>
             Categories
             <br>
-            <div class="form-group">
-                <input type="checkbox" value="Community" id="community" name="categories">
-                <label for="community">
-                    Community
-                </label>
-                <br>
-                <input type="checkbox" value="Services" id="services" name="categories">
-                <label for="services">
-                    Services
-                </label>
-                <br>
-                <input type="checkbox" value="Housing" id="housing" name="categories">
-                <label for="housing">
-                    Housing
-                </label>
-                <br>
-                <input type="checkbox" value="For Sale" id="for-sale" name="categories">
-                <label for="for-sale">
-                    For Sale
-                </label>
-                <br>
-                <input type="checkbox" value="Jobs" id="jobs" name="categories">
-                <label for="jobs">
-                    Jobs
-                </label>
-                <br>
-            </div>
-            <input type="submit" class="btn btn-block btn-primary">
-        </form>
-    </div>
+            <input type="checkbox" value="Services" id="services" name="categories">
+            <label for="services">
+                Services
+            </label>
+            <br>
+            <input type="checkbox" value="Housing" id="housing" name="categories">
+            <label for="housing">
+                Housing
+            </label>
+            <br>
+            <input type="checkbox" value="For Sale" id="for-sale" name="categories">
+            <label for="for-sale">
+                For Sale
+            </label>
+            <br>
+            <input type="checkbox" value="Jobs" id="jobs" name="categories">
+            <label for="jobs">
+                Jobs
+            </label>
+            <br>
+        </div>
+        <input type="submit" class="btn btn-block btn-primary">
+    </form>
+</div>
 </body>
 </html>

@@ -116,8 +116,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
-
     @Override
     public List<Ad> searchedAds(String searchTerm) {
         try {
@@ -143,7 +141,7 @@ public class MySQLAdsDao implements Ads {
         }
        return null;
     }
-
+//this method takes in a long that represents the ad id
     @Override
     public List<Ad> deleteAd(long adId) {
         PreparedStatement stmt = null;
@@ -155,7 +153,22 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
+    }
 
+    @Override
+    public void editAd(long adId, String title, String description) {
+
+            PreparedStatement stmt = null;
+            try {
+                stmt = connection.prepareStatement("UPDATE ads SET title = ?, description =? WHERE id = ?");
+                stmt.setString(1, title);
+                stmt.setString(2, description);
+                stmt.setLong(3,adId);
+                stmt.executeUpdate();
+
+        } catch (SQLException e) {
+                throw new RuntimeException("Error editing the ad.", e);
+            }
     }
 
 }

@@ -14,16 +14,12 @@ import java.io.IOException;
 public class DeleteAdsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+//this takes the ad id that is stored in the query when we click delete ad and stores it in a variable
         Long idToDelete = Long.parseLong(request.getParameter("adId"));
+//this accesses our deletead method and puts in our stored variable
         DaoFactory.getAdsDao().deleteAd(idToDelete);
-
         // delete all db entries from ad_category where ad_id = idToDelete
         DaoFactory.getCategoriesDao().deleteAdFromCategoryTable(idToDelete);
-
-
         response.sendRedirect("/profile");
-
-
-
     }
 }
