@@ -13,7 +13,10 @@ public interface Ads {
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
     List<Ad> viewAllAdsFromUser(User user);
+    List<Ad> viewAdsByCategory(long id);
     List<Ad> searchedAds(String string);
+    Ad getAdId(long adId);
+
 
 
     List<Ad> deleteAd(long adId);

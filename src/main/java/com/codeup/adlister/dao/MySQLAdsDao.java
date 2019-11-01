@@ -39,6 +39,21 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+    @Override
+    public List<Ad> viewAdsByCategory(long id) {
+        try {
+            PreparedStatement stmnt = connection.prepareStatement("SELECT * FROM ads where id IN(" +
+                    "select ad_id from ad_category where category_id = ?)");
+            stmnt.setLong(1,id);
+            ResultSet rs = stmnt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @Override
     public Long insert(Ad ad) {
         try {
@@ -86,18 +101,30 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
 
-
     }
 
+
+    public Ad getAdId(long id) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ads by id.", e);
+        }
+    }
 
     @Override
     public List<Ad> searchedAds(String searchTerm) {
         try {
-            String sql = "SELECT * FROM ads WHERE title LIKE ? ";
+            String sql = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
             String searchTermWithWildcards = "%" + searchTerm + "%";
 
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, searchTermWithWildcards);
+            stmt.setString(2, searchTermWithWildcards);
 
             List<Ad> ads = new ArrayList<>();
             ResultSet rs = stmt.executeQuery();
@@ -143,4 +170,5 @@ public class MySQLAdsDao implements Ads {
                 throw new RuntimeException("Error editing the ad.", e);
             }
     }
+
 }
