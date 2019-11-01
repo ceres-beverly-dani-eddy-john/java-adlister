@@ -17,11 +17,11 @@ public class ViewAdByCategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String cat = request.getParameter("category");
+        String category_name = request.getParameter("catname");
+        System.out.println("category_name = " + category_name);
         Long catLong = Long.parseLong(String.valueOf(cat));
-        System.out.println("cat = " + cat);
         request.setAttribute("adscat", DaoFactory.getAdsDao().viewAdsByCategory(catLong));
-        System.out.println("where the error might be happening");
-        System.out.println(DaoFactory.getAdsDao().viewAdsByCategory(catLong).toString());
+        request.setAttribute("category_name", category_name);
         request.getRequestDispatcher("/WEB-INF/ads/category.jsp").forward(request, response);
     }
 }
