@@ -20,7 +20,10 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<h1>Here are your results!</h1>
+<div class="page-header">
+    <h1>Here are your results!<small></small></h1>
+</div>
+
 
 <c:forEach var="ad" items="${ads}">
 
