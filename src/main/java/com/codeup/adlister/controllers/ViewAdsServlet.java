@@ -20,7 +20,7 @@ public class ViewAdsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //parses the charsequence argument of the id numbwe
+        //parses the charsequence argument of the id number
         long id = Long.parseLong(request.getParameter("id"));
         //gets a ad object ,uses the get ads dao and then uses the get adbyid method.
         Ad ad = DaoFactory.getAdsDao().getAdId(id);
